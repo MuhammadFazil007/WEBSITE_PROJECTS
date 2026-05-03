@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products - FreshMart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER SECTION -->
+<header>
+    <h1>FreshMart 🛒</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">Cart</a>
+    </nav>
+</header>
+
+<!-- PRODUCTS SECTION -->
+<section>
+    <h2 style="text-align: center;">Our Fresh Products</h2>
+    
+    <!-- FILTER BUTTONS (button tag with onclick event - in notes) -->
+    <div style="text-align: center; margin-bottom: 20px;">
+        <button onclick="filterProducts('all')">All</button>
+        <button onclick="filterProducts('fruits')">🍎 Fruits</button>
+        <button onclick="filterProducts('vegetables')">🥬 Vegetables</button>
+        <button onclick="filterProducts('meat')">🍗 Meat & Fish</button>
+    </div>
+    
+    <!-- PRODUCTS CONTAINER (div with id - in notes) -->
+    <div class="products" id="productsContainer">
+        <!-- Products will load here from JavaScript -->
+    </div>
+</section>
+
+<!-- FOOTER SECTION -->
+<footer>
+    <p>© 2026 FreshMart | Fresh & Organic Products</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

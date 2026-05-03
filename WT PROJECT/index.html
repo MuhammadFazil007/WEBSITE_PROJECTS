@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FreshMart - Fresh Grocery Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER SECTION (HTML header tag - in notes) -->
+<header>
+    <h1>FreshMart 🛒</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">Cart</a>
+    </nav>
+</header>
+
+<!-- HERO SECTION (div and class - in notes) -->
+<section class="hero">
+    <h2>Welcome to FreshMart</h2>
+    <p>Fresh & Organic Products delivered to your doorstep</p>
+    <button onclick="location.href='products.html'">Shop Now →</button>
+</section>
+
+<!-- CATEGORY SECTION (div and onclick event - in notes) -->
+<section>
+    <h2 style="text-align: center;">Shop by Category</h2>
+    <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+        
+        <!-- Fruits Category (onclick event - in notes) -->
+        <div style="text-align: center; cursor: pointer;" onclick="goToCategory('fruits')">
+            <img src="images/apple.png" alt="Fruits" style="width: 100px; height: 100px; border-radius: 50%;">
+            <p><strong>Fruits</strong></p>
+        </div>
+        
+        <!-- Vegetables Category -->
+        <div style="text-align: center; cursor: pointer;" onclick="goToCategory('vegetables')">
+            <img src="images/broccoli.png" alt="Vegetables" style="width: 100px; height: 100px; border-radius: 50%;">
+            <p><strong>Vegetables</strong></p>
+        </div>
+        
+        <!-- Meat Category -->
+        <div style="text-align: center; cursor: pointer;" onclick="goToCategory('meat')">
+            <img src="images/beef-steak.png" alt="Meat" style="width: 100px; height: 100px; border-radius: 50%;">
+            <p><strong>Meat & Fish</strong></p>
+        </div>
+        
+    </div>
+</section>
+
+<!-- FEATURED PRODUCTS SECTION -->
+<section>
+    <h2 style="text-align: center;">Featured Products</h2>
+    <div class="products" id="featuredProducts">
+        <!-- Products load here from JavaScript -->
+    </div>
+</section>
+
+<!-- BENEFITS SECTION (div with inline styles - in notes) -->
+<section style="background: #e8f5e9; padding: 20px; margin-top: 20px;">
+    <div style="display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; text-align: center;">
+        <div>
+            <h3>🚚 Free Delivery</h3>
+            <p>On orders above Rs. 1000</p>
+        </div>
+        <div>
+            <h3>🔄 7-Day Return</h3>
+            <p>Easy return policy</p>
+        </div>
+        <div>
+            <h3>💰 Best Prices</h3>
+            <p>Guaranteed lowest prices</p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER SECTION (HTML footer tag - in notes) -->
+<footer>
+    <p>© 2026 FreshMart | Fresh & Organic Products</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

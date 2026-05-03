@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact - FreshMart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER SECTION -->
+<header>
+    <h1>FreshMart 🛒</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">Cart</a>
+    </nav>
+</header>
+
+<!-- CONTACT SECTION -->
+<section>
+    <h2 style="text-align: center;">Contact Us</h2>
+    
+    <!-- TWO COLUMN LAYOUT -->
+    <div style="display: flex; gap: 40px; flex-wrap: wrap; max-width: 800px; margin: 0 auto;">
+        
+        <!-- Left Column - Contact Info -->
+        <div style="flex: 1;">
+            <h3>Get in Touch</h3>
+            <p>📧 Email: support@freshmart.com</p>
+            <p>📞 Phone: +92 300 1234567</p>
+            <p>📍 Address: Karachi, Pakistan</p>
+            <p>⏰ Hours: Mon-Sat, 9AM - 9PM</p>
+        </div>
+        
+        <!-- Right Column - Contact Form (HTML Form - in notes) -->
+        <div style="flex: 1;">
+            <h3>Send us a Message</h3>
+            <form id="contactForm">
+                <input type="text" id="contactName" placeholder="Your Name" style="width:100%; padding:8px; margin:5px 0;"><br>
+                <input type="email" id="contactEmail" placeholder="Your Email" style="width:100%; padding:8px; margin:5px 0;"><br>
+                <input type="text" id="contactSubject" placeholder="Subject" style="width:100%; padding:8px; margin:5px 0;"><br>
+                <textarea id="contactMessage" placeholder="Your Message" rows="4" style="width:100%; padding:8px; margin:5px 0;"></textarea><br>
+                <button type="submit" style="background:#2e7d32; color:white; padding:10px 20px; border:none; cursor:pointer;">Send Message</button>
+            </form>
+        </div>
+        
+    </div>
+</section>
+
+<!-- FOOTER SECTION -->
+<footer>
+    <p>© 2026 FreshMart | Fresh & Organic Products</p>
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+    // Contact form validation (JavaScript - in notes)
+    const form = document.getElementById('contactForm');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('contactName').value;
+            const email = document.getElementById('contactEmail').value;
+            const subject = document.getElementById('contactSubject').value;
+            const message = document.getElementById('contactMessage').value;
+            
+            if (name === "" || email === "" || subject === "" || message === "") {
+                alert("Please fill in all fields!");
+                return;
+            }
+            
+            if (!email.includes('@')) {
+                alert("Please enter a valid email!");
+                return;
+            }
+            
+            alert("Thank you " + name + "! Your message has been sent.");
+            form.reset();
+        });
+    }
+</script>
+
+</body>
+</html>

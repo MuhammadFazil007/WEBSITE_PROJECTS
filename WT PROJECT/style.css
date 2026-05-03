@@ -1,0 +1,138 @@
+/* ============================================
+   UNIVERSAL SELECTOR (In your notes - Week 4)
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+/* ============================================
+   ELEMENT SELECTORS (In your notes - Week 4)
+   ============================================ */
+header {
+    background: #2e7d32;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    margin: 10px;
+    text-decoration: none;
+}
+
+/* HOVER Pseudo-class (In your notes - Week 4) */
+nav a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #2e7d32;
+    color: white;
+    margin-top: 20px;
+}
+
+button {
+    background: #2e7d32;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* HOVER Pseudo-class (In your notes - Week 4) */
+button:hover {
+    background: #1b5e20;
+}
+
+/* ============================================
+   CLASS SELECTORS (In your notes - Week 4)
+   ============================================ */
+.hero {
+    text-align: center;
+    padding: 50px;
+    background: #a5d6a7;
+}
+
+/* FLEXBOX (In your notes - Week 5) */
+.products {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* BOX MODEL (In your notes - Week 5) */
+.card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    width: 180px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    border-radius: 10px;
+}
+
+/* ============================================
+   ID SELECTORS (In your notes - Week 4)
+   ============================================ */
+#productsContainer {
+    /* No extra styles needed */
+}
+
+#cartContainer {
+    /* No extra styles needed */
+}
+
+/* ============================================
+   TABLE STYLES (For cart page)
+   ============================================ */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+input[type="number"] {
+    width: 60px;
+    padding: 5px;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN (In your notes - Week 6)
+   ============================================ */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .products {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .card {
+        width: 90%;
+    }
+}
