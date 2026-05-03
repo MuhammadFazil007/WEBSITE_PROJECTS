@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aircraft Information Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <nav>
+            <div class="logo">Aviation Hub</div>
+            <ul>
+                <li><a onclick="showPage('home')" class="nav-link active">Home</a></li>
+                <li><a onclick="showPage('aircraft')" class="nav-link">Aircraft</a></li>
+                <li><a onclick="showPage('add')" class="nav-link">Add Aircraft</a></li>
+                <li><a onclick="showPage('about')" class="nav-link">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- HOME PAGE -->
+        <div id="home" class="page active">
+            <div class="hero">
+                <h1>Aircraft Information Management</h1>
+                <p>Explore the world of aviation with our comprehensive aircraft database</p>
+                <button class="btn" onclick="showPage('aircraft')">Explore Aircraft</button>
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <h3>🔍 Search</h3>
+                    <p>Find aircraft by name instantly with our powerful search feature</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📂 Filter</h3>
+                    <p>Filter aircraft by type - Civil, Military, Cargo, and more</p>
+                </div>
+                <div class="feature-card">
+                    <h3>➕ Add</h3>
+                    <p>Add your own aircraft to our growing database</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📊 Details</h3>
+                    <p>View comprehensive specifications and information about each aircraft</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- AIRCRAFT LIST PAGE -->
+        <div id="aircraft" class="page">
+            <h2 style="color: var(--primary-color); margin-bottom: 2rem;">Aircraft Catalog</h2>
+            
+            <div class="search-filter-section">
+                <input type="text" id="searchInput" placeholder="Search by aircraft name..." 
+                       onkeyup="filterAircraft()">
+                <select id="typeFilter" onchange="filterAircraft()">
+                    <option value="">All Types</option>
+                    <option value="Civil">Civil</option>
+                    <option value="Military">Military</option>
+                    <option value="Cargo">Cargo</option>
+                    <option value="Fighter">Fighter</option>
+                </select>
+            </div>
+
+            <div class="aircraft-grid" id="aircraftGrid">
+                <!-- Aircraft cards will be generated here -->
+            </div>
+        </div>
+
+        <!-- DETAIL PAGE -->
+        <div id="detail" class="page">
+            <button class="btn btn-secondary" onclick="showPage('aircraft')" style="margin-bottom: 2rem;">← Back to List</button>
+            <div class="detail-container" id="detailContainer">
+                <!-- Detail content will be generated here -->
+            </div>
+        </div>
+
+        <!-- ADD AIRCRAFT PAGE -->
+        <div id="add" class="page">
+            <div class="form-container">
+                <h2>Add New Aircraft</h2>
+                <form onsubmit="addAircraft(event)">
+                    <div class="form-group">
+                        <label for="aircraftName">Aircraft Name *</label>
+                        <input type="text" id="aircraftName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="manufacturer">Manufacturer *</label>
+                        <input type="text" id="manufacturer" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="aircraftType">Aircraft Type *</label>
+                        <select id="aircraftType" required>
+                            <option value="">Select Type</option>
+                            <option value="Civil">Civil</option>
+                            <option value="Military">Military</option>
+                            <option value="Cargo">Cargo</option>
+                            <option value="Fighter">Fighter</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="maxSpeed">Maximum Speed (km/h) *</label>
+                        <input type="number" id="maxSpeed" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="range">Range (km) *</label>
+                        <input type="number" id="range" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="firstFlight">First Flight Year *</label>
+                        <input type="number" id="firstFlight" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="emoji">Aircraft Emoji (for display) *</label>
+                        <input type="text" id="emoji" value="✈️" required>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn">Add Aircraft</button>
+                        <button type="reset" class="btn btn-secondary">Clear</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- ABOUT PAGE -->
+        <div id="about" class="page">
+            <div class="about-content">
+                <h2>About This Project</h2>
+                <p>The Aircraft Information Management System is a semester project developed for the Web Technology course. This website demonstrates the practical application of fundamental web development technologies.</p>
+                
+                <h3 style="color: var(--primary-color); margin-top: 2rem; margin-bottom: 1rem;">Project Objectives</h3>
+                <p>This project aims to create a user-friendly platform for aviation enthusiasts, students, and learners to explore aircraft information in an organized and interactive manner.</p>
+
+                <h3 style="color: var(--primary-color); margin-top: 2rem; margin-bottom: 1rem;">Technologies Used</h3>
+                <div class="tech-list">
+                    <div class="tech-item"><strong>HTML5</strong> - Structure</div>
+                    <div class="tech-item"><strong>CSS3</strong> - Styling</div>
+                    <div class="tech-item"><strong>JavaScript</strong> - Interactivity</div>
+                </div>
+
+                <h3 style="color: var(--primary-color); margin-top: 2rem; margin-bottom: 1rem;">Key Features</h3>
+                <p>
+                    ✅ Browse aircraft catalog<br>
+                    ✅ Search and filter functionality<br>
+                    ✅ Add new aircraft to database<br>
+                    ✅ View detailed aircraft specifications<br>
+                    ✅ Responsive design for all devices<br>
+                    ✅ Professional UI/UX design
+                </p>
+
+                <h3 style="color: var(--primary-color); margin-top: 2rem; margin-bottom: 1rem;">Target Audience</h3>
+                <p>
+                    • Aviation enthusiasts<br>
+                    • University students<br>
+                    • Beginners interested in aircraft<br>
+                    • Academic instructors
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2024 Aircraft Information Management System | Web Technology Project</p>
+        <p>Developed with ❤️ for aviation enthusiasts</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
