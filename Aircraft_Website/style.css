@@ -22,7 +22,150 @@ body {
     background-color: var(--light-bg);
 }
 
-/* ===== HEADER & NAVIGATION ===== */
+.hidden {
+    display: none !important;
+}
+
+/* ===================================================
+   AUTH OVERLAY
+=================================================== */
+
+.auth-overlay {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 60%, #1a1a2e 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 1rem;
+}
+
+.auth-box {
+    background: white;
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+    animation: authSlideIn 0.4s ease;
+}
+
+@keyframes authSlideIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.auth-logo {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 1.8rem;
+    letter-spacing: -0.5px;
+}
+
+.auth-panel {
+    display: none;
+}
+
+.auth-panel.active {
+    display: block;
+}
+
+.auth-panel h2 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.3rem;
+}
+
+.auth-sub {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.auth-error {
+    background: #fff0f0;
+    color: #c0392b;
+    border: 1px solid #f5c6cb;
+    border-radius: 6px;
+    padding: 0.6rem 1rem;
+    font-size: 0.88rem;
+    margin-bottom: 1rem;
+    min-height: 0;
+    display: block;
+}
+
+.auth-error:empty {
+    display: none;
+}
+
+.auth-group {
+    margin-bottom: 1.1rem;
+}
+
+.auth-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.4rem;
+}
+
+.auth-group input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1.5px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.25s;
+}
+
+.auth-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(30,60,114,0.12);
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 0.85rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.auth-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(30,60,114,0.35);
+}
+
+.auth-switch {
+    text-align: center;
+    font-size: 0.88rem;
+    color: #777;
+    margin-top: 1.2rem;
+}
+
+.auth-switch span {
+    color: var(--accent-color);
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* ===================================================
+   HEADER & NAVIGATION
+=================================================== */
+
 header {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: white;
@@ -41,6 +184,7 @@ nav {
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
+    gap: 1rem;
 }
 
 .logo {
@@ -49,6 +193,7 @@ nav {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    flex-shrink: 0;
 }
 
 .logo::before {
@@ -60,6 +205,8 @@ nav ul {
     display: flex;
     list-style: none;
     gap: 2rem;
+    flex: 1;
+    justify-content: center;
 }
 
 nav a {
@@ -71,24 +218,52 @@ nav a {
     transition: all 0.3s ease;
 }
 
-nav a:hover {
-    background-color: var(--accent-color);
-    color: white;
-}
-
+nav a:hover,
 nav a.active {
     background-color: var(--accent-color);
     color: white;
 }
 
-/* ===== MAIN CONTAINER ===== */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-shrink: 0;
+}
+
+.welcome-user {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.85);
+    white-space: nowrap;
+}
+
+.logout-btn {
+    padding: 0.4rem 1rem;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-family: inherit;
+    transition: background 0.25s;
+    white-space: nowrap;
+}
+
+.logout-btn:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+/* ===================================================
+   MAIN CONTAINER & PAGES
+=================================================== */
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
 }
 
-/* ===== PAGES ===== */
 .page {
     display: none;
 }
@@ -100,10 +275,13 @@ nav a.active {
 
 @keyframes fadeIn {
     from { opacity: 0; }
-    to { opacity: 1; }
+    to   { opacity: 1; }
 }
 
-/* ===== HOME PAGE ===== */
+/* ===================================================
+   HOME PAGE
+=================================================== */
+
 .hero {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: white;
@@ -170,7 +348,10 @@ nav a.active {
     font-size: 1.5rem;
 }
 
-/* ===== AIRCRAFT LIST PAGE ===== */
+/* ===================================================
+   AIRCRAFT LIST PAGE
+=================================================== */
+
 .search-filter-section {
     background: white;
     padding: 2rem;
@@ -239,6 +420,10 @@ nav a.active {
     object-fit: cover;
 }
 
+.aircraft-image .emoji-display {
+    font-size: 3rem;
+}
+
 .aircraft-info {
     padding: 1.5rem;
 }
@@ -264,7 +449,10 @@ nav a.active {
     margin-bottom: 0.5rem;
 }
 
-/* ===== DETAIL PAGE ===== */
+/* ===================================================
+   DETAIL PAGE
+=================================================== */
+
 .detail-container {
     background: white;
     border-radius: 10px;
@@ -288,6 +476,7 @@ nav a.active {
     align-items: center;
     justify-content: center;
     font-size: 5rem;
+    overflow: hidden;
 }
 
 .detail-info h2 {
@@ -318,7 +507,10 @@ nav a.active {
     color: var(--text-color);
 }
 
-/* ===== ADD AIRCRAFT PAGE ===== */
+/* ===================================================
+   ADD AIRCRAFT PAGE
+=================================================== */
+
 .form-container {
     background: white;
     padding: 2rem;
@@ -370,6 +562,36 @@ nav a.active {
     min-height: 100px;
 }
 
+/* Image upload area */
+.image-upload-area {
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    color: #888;
+}
+
+.image-upload-area:hover {
+    border-color: var(--primary-color);
+    background: rgba(30,60,114,0.04);
+    color: var(--primary-color);
+}
+
+.upload-icon {
+    font-size: 2.5rem;
+}
+
+.upload-hint {
+    font-size: 0.8rem;
+    color: #bbb;
+}
+
 .form-actions {
     display: flex;
     gap: 1rem;
@@ -384,7 +606,10 @@ nav a.active {
     background-color: #7f8c8d;
 }
 
-/* ===== ABOUT PAGE ===== */
+/* ===================================================
+   ABOUT PAGE
+=================================================== */
+
 .about-content {
     background: white;
     padding: 2rem;
@@ -417,7 +642,10 @@ nav a.active {
     border-left: 4px solid var(--accent-color);
 }
 
-/* ===== FOOTER ===== */
+/* ===================================================
+   FOOTER
+=================================================== */
+
 footer {
     background: var(--primary-color);
     color: white;
@@ -426,18 +654,52 @@ footer {
     margin-top: 4rem;
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
+/* ===================================================
+   TOAST NOTIFICATION
+=================================================== */
+
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #27ae60;
+    color: white;
+    padding: 0.9rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 9000;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+    opacity: 0;
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+/* ===================================================
+   RESPONSIVE DESIGN
+=================================================== */
+
 @media (max-width: 768px) {
     nav {
         padding: 1rem;
-        flex-direction: column;
-        gap: 1rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
     }
 
     nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
-        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        justify-content: flex-start;
+    }
+
+    .logo {
+        font-size: 1.3rem;
     }
 
     .hero h1 {
@@ -459,5 +721,13 @@ footer {
 
     .aircraft-grid {
         grid-template-columns: 1fr;
+    }
+
+    .detail-image {
+        height: 250px;
+    }
+
+    .auth-box {
+        padding: 2rem 1.5rem;
     }
 }
