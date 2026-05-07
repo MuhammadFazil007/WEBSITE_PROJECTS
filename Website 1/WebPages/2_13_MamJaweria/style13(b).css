@@ -1,0 +1,19 @@
+.container {
+            width: 900px;
+            border: 2px solid black;
+            padding: 20px;
+            display: flex;
+        }
+
+        .list {
+            width: 40%;
+        }
+
+        .image {
+            width: 60%;
+            text-align: right;
+        }
+
+        img {
+            border: 1px solid black;
+        }

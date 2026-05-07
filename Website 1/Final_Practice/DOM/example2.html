@@ -1,0 +1,38 @@
+<!-- Use of getElementsByClassName() method to access an element and change its style. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Example 2</title>
+
+    <style>
+        div {
+            border: 5px solid black;
+            margin: 5px;
+        }
+    </style>
+    <script>
+        function myFunction()
+        {
+            var x = document.getElementsByClassName("example color");
+            x[0].style.backgroundColor = "red";
+            x[1].style.backgroundColor = "red";
+        }
+    </script>
+</head>
+<body>
+    <div class = "example>"
+        <p>P Element in First Div With Class = "example". Div's Index is 0.</p>
+    </div>
+    <div class = "example color">
+        <p>P Element in First Div With Class = "example color ". Div's Index is 0.</p>
+    </div>
+    <div class = "example color">
+        <p>P Element in Second Div With Class = "example color". Div's Index is 1.</p>
+    </div>
+    <p> Click the button to change the background color of the first div element with the classes "example" and "color".</p>
+    <button onclick = "myFunction()">Try it</button>
+    <p><strong> Note;</strong> The getElementsByClassName() method is not supported in Internet Explorer 8 and earlier versions.</p>
+</body>
+</html>

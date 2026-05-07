@@ -1,0 +1,19 @@
+.image {
+            
+            float: right;
+        }
+.list {
+    background-color: skyblue;
+    border: 2px solid black;
+}      
+#mypara{
+    clear:both;
+
+}
+.container {
+            width: 900px;
+            border: 2px solid black;
+            padding: 20px;
+            display: flex;
+            background-color: aqua;
+        }

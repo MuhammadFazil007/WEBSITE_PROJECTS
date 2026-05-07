@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #nav {
+            width: 100%;
+            height: 50px;
+            margin: 0;
+            z-index: 1;
+            background-color: #444444;
+        }
+        .navbar{
+            height: 50px;
+            padding:0;
+            margin:0;
+        }
+        .navbar li {
+            height: auto;
+            width: 135.8px;
+            float: left;
+            text-align:center;
+            list-style:none;
+            font: normal bold 13px Arial, Verdana, Helvetica;
+            padding: 0;
+            margin: 0;
+            background-color: #444444;
+        }
+        .navbar a{
+            padding: 18px 0;
+            border-left: 1px solid #ccc9c9;
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
+        .navbarli:hover,a:hover {
+            background-color: #444444;
+        }
+        .navbar li ul{
+            display: none;
+            height: auto;
+            margin: 0;
+            padding: 0;
+        }
+        .navbarli:hoverul{
+            display: block;
+        }
+        .navbar li ul {
+            background-color: #444444;
+        }
+        .navbar li ul li a {
+            border-left: 1px solid #444444;
+            border-right: 1px solid #444444;
+            border-top: 1px solid #c9d4d8;
+            border-bottom:1px solid #444444;
+        }
+        .navbar li ul li a:hover{
+            background-color: #a3a1a1;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id = "header" style = "border:2px solid green; height: 100px; width: 100%; background: pink;">
+
+    </div>
+
+    <div id = "nav">
+        <ul class = "navbar">
+            <li>
+                <a href = "#"> Home </a>
+            </li>
+            
+            <li>
+                <a href = "#"> Books</a>
+            
+                <ul>
+                    <li><a href = "#"> Learn HTML</a> </li>
+                    <li><a href = "#"> Learn class</a></li>
+                    <li><a href = "#"> Learn JavaScript</a></li>
+                    <li><a href = "#"> Learn PHP</a></li>
+
+                    
+                </ul>
+            </li>
+            
+            <li>
+                <a href = "#"> Quizzes</a>
+                
+                <ul>
+                    <li><a href = "#">CSS Basic</a> </li>
+                    <li><a href = "#">PHP Basic</a> </li>
+                    <li><a href = "#">JavaScript Basic</a> </li>
+                    
+                </ul>
+            </li>
+            
+            <li>
+                <a href = "#"> Tools </a>
+
+                <ul>
+                    <li><a href = "#">Geometric Images</a> </li>
+                    <li><a href = "#">Color Picker</a> </li>
+                    <li><a href = "#">Password Generator</a> </li>
+                    <li><a href = "#">HTML Editor</a> </li>
+                    <li><a href = "#">Base 64</a> </li>
+                </ul>
+                
+
+            </li>  
+            
+            <li>
+                <a href = "#">About </a>
+            </li>
+        </ul>
+    </div>
+
+    <div id = "content" style = "border: 2px solid green; height: 400px; width: 100%; background: pink"></div>
+
+    
+</body>
+</html>

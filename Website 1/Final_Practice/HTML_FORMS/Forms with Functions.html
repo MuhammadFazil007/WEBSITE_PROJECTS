@@ -1,0 +1,68 @@
+<html>
+<head>
+<style>
+body {
+font-family:Arial, sans-serif;
+}
+.container {
+width: 350px;
+margin: 50px auto;
+padding: 20px;
+border: 2px solid #aaa;
+border-radius: 20px;
+}
+.row {
+margin: 10px 0;
+}
+label {
+display: inline-block;
+width: 70px;
+}
+input[type="text"] {
+width: 200px;
+padding: 5px;
+}
+.center {
+text-align: center;
+margin-top: 10px;
+}
+</style>
+<script>
+function calculate() {
+let valInput = document.getElementById("value").value;
+let resultField = document.getElementById("result");
+let dblBtn = document.getElementById("double");
+let sqrBtn = document.getElementById("square");
+if (valInput === "" || (!dblBtn.checked && !sqrBtn.checked)) {
+resultField.value = "";
+return;
+}
+let value = parseInt(valInput);
+let result = 0;
+if (dblBtn.checked) {
+result = value * 2;
+} else if (sqrBtn.checked) {
+result = value * value;
+}
+resultField.value = result;
+}
+</script>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<label>Value:</label>
+<input type="text" id="value" value="3" oninput="calculate()">
+</div>
+<div class="center">
+<b>Action</b><br>
+<input type="radio" id="double" name="action" onclick="calculate()"> Double <br>
+<input type="radio" id="square" name="action" onclick="calculate()"> Square
+</div>
+<div class="row">
+<label>Result:</label>
+<input type="text" id="result" value="" readonly>
+</div>
+</div>
+</body>
+</html>

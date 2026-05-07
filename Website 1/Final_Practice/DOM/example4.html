@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Example 4</title>
+    <script language = "javascript">
+        function swap()
+        {
+            var temp = document.images[0].src;
+            document.images[0].src = document.images[1].src;
+            document.images[1].src = temp;
+        }
+        function autoswap()
+        {
+            setInterval(function(){swap();},3000);
+        }
+    </script>
+</head>
+<body onload = "autoswap()"
+    <br /></br /><center>
+        <img src = "/Images/motor_sports_racing_drift_76597_1920x1080.jpg" height = "200px" width = "200px" />
+        <img src = "/Images/motorcyclist_motorcycle_sunset_121025_1920x1080.jpg" height = "200px" width = "200px" />
+        <!-- <input type ="button" value = 'SWAP' onclick = "swap();"/> -->
+    </center>
+    
+</body>
+</html>

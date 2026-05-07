@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+    #myDiv{
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        padding: 20px;
+
+       }
+    #navBar{
+        display: block;
+        text-align: center;
+        padding: 20px;
+        margin: 0 auto;
+    
+    }
+   #mydiv{   
+    display: flex;
+    text-align: center;
+    width: 300px;
+    margin: 0 auto;
+    height: 30px;
+  
+   }
+
+    #footer{display: block;
+        margin: 0 auto;
+        text-align: center;
+        padding: 20px;
+        
+    }
+    #ul{
+    list-style-type: none;
+        padding: 0px;
+        margin: 0;
+        background-color: lightgray;
+    }
+    #ul li{
+        display: inline-block;
+        padding: 10px;
+
+    }
+    #ul li:hover 
+    {
+        background-color: green;
+        color: #000;
+
+    }
+    .dropdown{
+        display: none;
+    }
+    ul li:hover .dropdown{
+        display: block;
+        position: absolute;
+        margin-left: -0.4cm;
+        margin-top: 0.27cm;
+    }
+        .dropdown ul{
+            margin: 0 ;
+            padding: 0;}
+            .dropdown ul li{
+                display: block;
+            }
+        </style>
+
+</head>
+<body>
+    <div id="myDiv" style="background-color: lightblue; width: 200px; border: 2px solid black;">
+        Header</div>
+        <br>
+        <div id="navBar" style="background-color: lightgreen; width: 200px; border: 2px solid black;">
+            Navigation bar</div>
+            <br>
+            <div id="mydiv">
+                <div id="content" style="background-color: lightyellow; width: 110px; border: 2px solid black;">
+                C.A</div>
+                <br>
+                <div id="content" style="background-color: lightyellow; width: 110px; border: 2px solid black;">
+                C.B</div>
+                <div id="content" style="background-color: lightyellow; width: 110px; border: 2px solid black;">
+                C.C</div>
+                </div>
+                <br>
+                <div id="footer" style="background-color: lightcoral; width: 200px;  border: 2px solid black;">
+                    Footer</div>
+     <nav>
+         <ul id="ul">
+            <li>Home</li>
+            <li>About us</li>
+            <li>Courses
+                <div class="dropdown">
+                    <ul>
+                        <li>AI</li>
+                        <li>Web Development</li>
+                        <li>Data Science</li>
+                    </ul>
+                </div>
+            </li>
+            <li>contact us</li>
+        </ul>
+        </nav>
+</body>
+</html>

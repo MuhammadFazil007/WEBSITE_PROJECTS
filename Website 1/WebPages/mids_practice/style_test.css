@@ -1,0 +1,77 @@
+/* Universal Selector */
+*
+{
+    font-family : Arial;
+}
+/* ID Selector */
+#header
+{
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+/* Class Selector */
+.tagline
+{
+    font-style:italic;
+    color: gray
+}
+/* Class Selector */
+.section
+{
+    background-color: skyblue;
+}
+/* Class Selector */
+.highlight
+{
+    color: red;
+    font-weight: bold;
+}
+/* Class Selector */
+.benefits
+{
+    color: green;
+    line-height: 35px;
+}
+/* Group Selector */
+h1,h2,h3
+{
+    color: blue;
+    font-weight: lighter;
+}
+/* Element Selector */
+p
+{
+    font-size: 16px;
+
+}
+/* Descendant Selector */
+div p
+{
+    line-height: 35px;
+}
+/* Child Selector */
+.section > h2
+{
+    color: black;
+}
+.container
+{
+    background-color: bisque;
+}
+#footer
+{
+    background-color: lightgray;
+    padding: 2px;
+}
+.Line
+{
+    height : 5px;
+    background-color: black;
+    width : 50%;
+}
+.section > p
+{
+    text-align: justify;
+}
+

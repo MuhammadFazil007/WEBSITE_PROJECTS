@@ -1,0 +1,64 @@
+<html> 
+<head> 
+<title>Form Validation</title> 
+<script type = "text/javascript">
+function validate() 
+{ 
+if(document.myForm.Name.value == "") 
+{ 
+alert( "Please provide your name!" ); 
+document.myForm.Name.focus() ; 
+return false; 
+} 
+if( document.myForm.EMail.value == "" ) { 
+alert( "Please provide your Email!" ); 
+document.myForm.EMail.focus() ; 
+return false; 
+} 
+if(document.myForm.Zip.value == "") { 
+alert( "Please provide zip code." ); 
+document.myForm.Zip.focus() ; 
+return false; 
+} 
+if( document.myForm.Country.value == "0" ) { 
+alert( "Please Select Valid Country Value!" ); 
+return false; 
+} 
+return true; 
+} 
+</script> 
+</head> 
+<body> 
+<form name = "myForm" onsubmit = "return(validate())"> 
+<table cellspacing = "9" cellpadding = "29" border = "1"> 
+<tr> 
+<td style = "text-align:center">Name</td> 
+<td><input type = "text" name = "Name" /></td> 
+</tr> 
+<tr> 
+<td style = "text-align:center">EMail</td> 
+<td><input type = "Email" name = "EMail" /></td> 
+</tr> 
+<tr> 
+<td style = "text-align:center">Zip Code</td> 
+<td><input type = "text" name = "Zip" /></td> 
+</tr> 
+<tr> 
+<td style = "text-align:center">Country</td> 
+<td> 
+<select name = "Country"> 
+<option value = "0">Select</option> 
+<option value = "1">Pakistan</option> 
+<option value = "2">England</option> 
+<option value = "3">Japan</option> 
+</select> 
+</td> 
+</tr> 
+<tr> 
+<td style = "text-align:center"></td> 
+<td><input type = "submit" value = "Submit" /></td> 
+</tr> 
+</table> 
+</form> 
+</body> 
+</html>

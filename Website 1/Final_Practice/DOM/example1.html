@@ -1,0 +1,45 @@
+<!-- Use of .innerHTML for getting the content of an element and for setting the content of an element. -->
+<!-- Use of getElementsById() method to access an element and change its style. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Example 1</title>
+    
+    <script> 
+        var str = (document.getElementById("demo").innerHTML);
+        document.write(str);
+    </script>
+    <script>
+        function changeCOlor(newColor)
+        {
+            var elem = document.getElementById("demo");
+            elem.style.color = newColor;
+        }
+    </script>
+    <style>
+        #red{
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        #blue{
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <p id = "demo"> The Message</p>
+    <button id = 'red' onclick = "changeCOlor('red')">Red</button>
+    <button id = 'blue' onclick = "changeCOlor('blue')">Blue</button>
+    
+    
+</body>
+</html>

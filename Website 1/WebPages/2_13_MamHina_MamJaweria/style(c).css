@@ -1,0 +1,28 @@
+p {
+    color:red;
+}
+
+#mypara {
+    color:yellow;
+}
+
+.highlight {
+    background-color: grey;
+}
+
+h1 , h2, p.group {
+    color: green;
+}
+
+* {
+    font-family: Arial;
+}
+
+/* body p {
+    background-color: grey;
+} */
+
+/* body > h1 {
+    background-color:red;
+} */
+ 

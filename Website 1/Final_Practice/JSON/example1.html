@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Example 1</title>
+
+    <style>
+        body {
+            font-family: Arial; margin: 20px; background: #f4f4f4;
+        }
+        .code_box{
+            background: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius:8px; margin: 10px; overflow-x: auto;
+
+        }
+        .output{
+            background: white; padding: 15px; border-left: 4px solid green; margin: 10px 0;
+        }
+        button {
+            background: #007bff; color: white; padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1> JSON- Introduction</h1>
+    <div id = "output"></div>
+
+    <button onclick="basicJsonExample()">1. Basic JSON Example</button>
+    <button onclick="nestedJsonExample()">2. Nested JSON</button>
+    <button onclick="jsonArrayExample()">3. JSON Array Operations</button>
+    <button onclick="deepCloneExample()">4. Deep Clone using JSON</button>
+    <button onclick="jsonWithReviver()">5. JSON Reviver Function</button>
+    <button onclick="apiSimulation()">6. API Simulation</button>
+    
+    <script>
+        function displayOutput(title, content) {
+            const outputDiv = document.getElementById('output');
+            const newBlock = document.createElement('div');
+            newBlock.className = 'output';
+            newBlock.innerHTML = `<strong>${title}</strong><br><pre style="margin:10px 0">${content}</pre>`;
+            outputDiv.prepend(newBlock);
+        }
+        
+        // Example 1: Basic JSON conversion
+        function basicJsonExample() {
+            const user = {
+                id: 101,
+                name: "Fatima Ahmed",
+                email: "fatima@example.com",
+                isActive: true,
+                preferences: {
+                    theme: "dark",
+                    notifications: false
+                }
+            };
+            
+            // JavaScript Object → JSON String
+            const jsonString = JSON.stringify(user, null, 2); // null,2 for pretty print
+            displayOutput(
+                "📦 Basic JSON Conversion", 
+                `Original Object:\n${JSON.stringify(user, null, 2)}\n\n` +
+                `JSON String Type: ${typeof jsonString}\n\n` +
+                `Back to Object:\n${JSON.stringify(JSON.parse(jsonString), null, 2)}`
+            );
+        }
+        
+        // Example 2: Nested JSON with complex structure
+        function nestedJsonExample() {
+            const company = {
+                name: "Tech Solutions Inc.",
+                founded: 2020,
+                departments: [
+                    {
+                        name: "Engineering",
+                        employees: [
+                            { id: 1, name: "Ahmed", skills: ["JavaScript", "Python", "AWS"] },
+                            { id: 2, name: "Sara", skills: ["React", "Node.js", "MongoDB"] }
+                        ]
+                    },
+                    {
+                        name: "Sales",
+                        employees: [
+                            { id: 3, name: "Kamran", skills: ["CRM", "Negotiation", "English"] }
+                        ]
+                    }
+                ],
+                metadata: {
+                    revenue: "5M",
+                    investors: ["Alpha Capital", "Beta Ventures"]
+                }
+            };
+            
+            // Accessing nested data
+            const jsonStr = JSON.stringify(company, null, 2);
+            const parsed = JSON.parse(jsonStr);
+            const firstEngineerSkill = parsed.departments[0].employees[0].skills[0];
+            
+            displayOutput(
+                "🏢 Nested JSON Structure",
+                `Full JSON:\n${jsonStr}\n\n` +
+                `🔍 Access Test: First engineer's first skill = ${firstEngineerSkill}\n` +
+                `📊 Total Departments: ${parsed.departments.length}\n` +
+                `👥 Total Employees: ${parsed.departments.reduce((sum, dept) => sum + dept.employees.length, 0)}`
+            );
+        }
+        
+        // Example 3: JSON Array with filter, map, reduce
+        function jsonArrayExample() {
+            const productsJSON = `[
+                {"id": 1, "name": "Laptop", "price": 120000, "category": "electronics"},
+                {"id": 2, "name": "Mouse", "price": 1500, "category": "electronics"},
+                {"id": 3, "name": "Book", "price": 800, "category": "education"},
+                {"id": 4, "name": "Headphones", "price": 3500, "category": "electronics"}
+            ]`;
+            
+            const products = JSON.parse(productsJSON);
+            
+            // Complex operations
+            const expensiveProducts = products.filter(p => p.price > 2000);
+            const totalValue = products.reduce((sum, p) => sum + p.price, 0);
+            const electronicsNames = products.filter(p => p.category === "electronics").map(p => p.name);
+            
+            displayOutput(
+                "🛒 JSON Array Operations",
+                `Products List:\n${JSON.stringify(products, null, 2)}\n\n` +
+                `💰 Expensive Products (>2000):\n${JSON.stringify(expensiveProducts, null, 2)}\n\n` +
+                `💵 Total Inventory Value: Rs. ${totalValue.toLocaleString()}\n\n` +
+                `📱 Electronics Items: ${electronicsNames.join(", ")}`
+            );
+        }
+        
+        // Example 4: Deep Clone using JSON (Important Concept!)
+        function deepCloneExample() {
+            const original = {
+                name: "Original Object",
+                nested: {
+                    arr: [1, 2, 3],
+                    date: new Date(),
+                    regex: /test/g
+                }
+            };
+            
+            // Deep clone using JSON (Note: loses Date and RegExp types)
+            const cloned = JSON.parse(JSON.stringify(original));
+            
+            // Modify clone
+            cloned.name = "Modified Clone";
+            cloned.nested.arr.push(999);
+            
+            displayOutput(
+                "🔄 Deep Clone using JSON (Logical Use Case)",
+                `Original Object:\n${JSON.stringify(original, null, 2)}\n\n` +
+                `Cloned Object (Modified):\n${JSON.stringify(cloned, null, 2)}\n\n` +
+                `⚠️ Note: Date objects become strings in JSON! Original date: ${original.nested.date}\n` +
+                `Clone date (string): ${cloned.nested.date}`
+            );
+        }
+        
+        // Example 5: JSON Reviver Function (Restore custom types)
+        function jsonWithReviver() {
+            const dataWithDate = `{
+                "id": 5,
+                "event": "Meeting",
+                "createdAt": "2024-03-15T10:30:00.000Z",
+                "tags": ["urgent", "important"]
+            }`;
+            
+            // Normal parse
+            const normalParse = JSON.parse(dataWithDate);
+            
+            // Reviver function - convert ISO string back to Date
+            const reviverParse = JSON.parse(dataWithDate, (key, value) => {
+                if (key === "createdAt" && typeof value === "string") {
+                    return new Date(value);
+                }
+                return value;
+            });
+            
+            displayOutput(
+                "⏰ JSON Reviver Function - Date Restoration",
+                `Normal Parse (createdAt is string):\n${JSON.stringify(normalParse, null, 2)}\n\n` +
+                `With Reviver (createdAt is Date):\n${JSON.stringify(reviverParse, (key, val) => {
+                    if (val instanceof Date) return val.toLocaleString();
+                    return val;
+                }, 2)}`
+            );
+        }
+        
+        // Example 6: API Simulation with JSON
+        function apiSimulation() {
+            // Simulate API response
+            class APIClient {
+                static async fetchUsers() {
+                    // Simulating network delay
+                    return new Promise((resolve) => {
+                        setTimeout(() => {
+                            const jsonResponse = `{
+                                "status": "success",
+                                "code": 200,
+                                "data": {
+                                    "users": [
+                                        {"id": 1, "name": "Zain", "role": "admin", "active": true},
+                                        {"id": 2, "name": "Hira", "role": "editor", "active": true},
+                                        {"id": 3, "name": "Omar", "role": "viewer", "active": false}
+                                    ],
+                                    "total": 3,
+                                    "page": 1
+                                },
+                                "timestamp": "${new Date().toISOString()}"
+                            }`;
+                            resolve(JSON.parse(jsonResponse));
+                        }, 500);
+                    });
+                }
+            }
+            
+            // Async function to simulate API call
+            (async () => {
+                try {
+                    const response = await APIClient.fetchUsers();
+                    const activeUsers = response.data.users.filter(u => u.active);
+                    const adminExists = response.data.users.some(u => u.role === "admin");
+                    
+                    displayOutput(
+                        "🌐 API Simulation with JSON",
+                        `API Response (Raw):\n${JSON.stringify(response, null, 2)}\n\n` +
+                        `📊 Statistics:\n` +
+                        `- Total Users: ${response.data.total}\n` +
+                        `- Active Users: ${activeUsers.length}\n` +
+                        `- Admin Exists: ${adminExists ? "Yes" : "No"}\n` +
+                        `- Response Code: ${response.code}\n` +
+                        `- Server Timestamp: ${response.timestamp}`
+                    );
+                } catch (error) {
+                    console.error("API Error:", error);
+                }
+            })();
+        }
+    </script>
+    
+    <div style="margin-top: 30px; padding: 15px; background: #e7f3ff; border-radius: 8px;">
+        <h3>📌 JSON Key Takeaways:</h3>
+        <ul>
+            <li><strong>JSON.stringify(obj)</strong> → Object to JSON string</li>
+            <li><strong>JSON.parse(str)</strong> → JSON string to Object</li>
+            <li><strong>Reviver function</strong> → Parse karte waqt data transform kar sakte ho</li>
+            <li><strong>Deep Clone</strong> → JSON ka use karke objects ka deep copy bana sakte ho (but Date/Function lost!)</li>
+            <li><strong>API Communication</strong> → 95% modern APIs JSON format use karti hain</li>
+        </ul>
+    </div>
+</body>
+</html>
+    

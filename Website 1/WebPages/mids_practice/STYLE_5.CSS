@@ -1,0 +1,114 @@
+/* Universal Selector */
+*
+{
+    font-family: Arial;
+}
+
+/* Element Selector */
+p
+{
+    line-height: 1.6;
+}
+
+/* ID Selector */
+#header
+{
+    background-color: black;
+    color: white;
+    text-align : center;
+}
+
+/* Class Selector */
+.highlight
+{
+    color: red;
+    font-weight: bold;
+}
+
+/* Group Selector */
+h1,h2,h3
+{
+    color: blue;
+    font-weight: lighter;
+
+    
+}
+/* Descendant Selector */
+.container p{
+ font-size:16px;
+ line-height: 35px;
+}
+/* Child Selector */
+.section > p{
+ text-align:justify;
+}
+.section > h2
+{
+    color: black;
+}
+/* List Styling */
+.benefits li{
+ color:green;
+ line-height: 30px;
+}
+/* Footer Styling */
+#footer{
+ background-color:lightgray;
+ padding:20px;
+}
+.container
+{
+    background-color:bisque;
+}
+.tagline
+{
+    font-style: italic;
+    color: gray;
+}
+.section
+{
+    background-color:skyblue;
+}
+img:hover
+{
+    background-color: red;
+    border: 2px solid black;
+    box-shadow: 0 0 10px rgba(1.0, 1.0, 1.0, 1.0);
+
+}
+img
+{
+    float:right;
+}
+video:hover
+{
+    background-color:black;
+    border: 2px solid black;
+    box-shadow: 0 0 10px rgba(1.0, 1.0, 1.0, 1.0);
+
+}
+.Line
+{
+    height : 5px;
+    width : 50%;
+    background-color : black;
+}
+.row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:10px;
+}
+.images{
+display:flex;
+justify-content:flex-end;
+gap:10px;
+}
+
+.box_model
+{
+    margin: 200px 200px 200px 200px; /* Margin Get Values for Top, Right, Bottom, Left */
+    padding: 50px;
+    border:5px solid black;
+    
+}

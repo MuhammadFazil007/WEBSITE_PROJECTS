@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src ="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+   
+   $(document).ready(function(){
+            $("#btn1").click(function(){
+                $('p').append("Appended Paragraph.");
+            });
+            $("#btn2").click(function(){
+                $('ol').append("<li>Appended List Item</li>");
+            });
+        });
+
+
+    </script>
+</head>
+<body>
+    <p> This Is Paragraph</p>
+    <P> Another Paragraph</P>
+    <button id="btn1">Appended Paragraph</button>
+    
+    <ol>
+    <li>List Item 1</li>
+    <li>List Item 2</li>    
+    <li>List Item 3</li>
+    <button id="btn2">Appended List Item</button>
+    </ol>
+    
+</body>
+</html>

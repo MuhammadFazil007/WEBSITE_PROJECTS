@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Form</title>
+    <script>
+        function validate()
+        {
+            if(document.myform.Name.Value == "")
+        {
+            alert("Please Provide Full Name");
+            document.myform.Name.focus();
+            return false;
+        }
+            if(document.myform.Email.Value == "")
+        {
+            alert("Please Provide Email");
+            document.myform.Email.focus();
+            return false;
+        }
+            if(document.myform.ZipCode.Value == "")
+        {
+            alert("Please Provide Zip Code ");
+            document.myform.ZipCode.focus();
+            return false;
+        }
+            if(document.myform.Country == "0")
+        {
+            alert("Please Select a Valid Country ");
+            return false;
+        }
+        return true;
+        }
+    </script>
+
+
+
+</head>
+<body>
+    <form name = "myform" onsubmit = "return(validate())">
+        <table cellspacing = "9" cellpadding = "9" border="1">
+            <tr>
+                <td style = "text-align: center;">Name </td>
+                <td> <input type = 'text' name = "Name"/></td>
+            </tr>
+            <tr>
+                <td style = "text-align: center;"> Email</td>
+                <td><input type = 'text' name = "Email"/></td>
+            </tr>
+            <tr>
+                <td style = "text-align: center;"> Zip Code</td>
+                <td><input type = 'text' name = "ZipCode"/></td>
+            </tr>
+            <tr>
+                <td style = "text-align: center;"> Country</td>
+                <td>
+                    <select name = Country>
+                        <option value = "1"> Select </option>
+                        <option value = "2"> Pakistan</option>
+                        <option value = "3"> India </option>
+                        <option value = "4"> Bangladesh</option>
+                    </select>
+                </td>
+            </tr>
+            <tr> 
+                <td> </td>
+                <td><input type = 'submit'/></td>
+            </tr>
+        </table>
+    </form>
+    
+</body>
+</html>
