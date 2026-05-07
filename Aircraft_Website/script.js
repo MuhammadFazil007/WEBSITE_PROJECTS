@@ -106,10 +106,10 @@ function seedDefaultUser() {
 
     let users = getUsers();
 
-    // Check karo admin user already exist karta hy ya nahi
+    
     const adminExists = users.some(user => user.username === 'admin');
 
-    // Agar exist nahi karta to add karo
+
     if (!adminExists) {
 
         users.push({
@@ -121,7 +121,7 @@ function seedDefaultUser() {
     }
 }
 
-// Default user create karo
+
 seedDefaultUser();
 // ===== INIT ON PAGE LOAD =====
 window.addEventListener('DOMContentLoaded', () => {
